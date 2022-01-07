@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "task",url = "localhost:6783/api/task/")
+@FeignClient(name = "task",url = "task:6783/api/task/")
 public interface TaskService {
     @GetMapping("/taskNum/{workNum}")
     BaseResponse<TaskResponseList> getTaskNum(@PathVariable String workNum);

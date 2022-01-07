@@ -7,7 +7,7 @@ spring:
 #    password: ${PASSWORD}
 #    driver-class-name: com.mysql.cj.jdbc.Driver
   datasource:
-    url: jdbc:mysql://localhost:3306/adsdLab-user?createDatabaseIfNotExist=true&UseUnicode=true&characterEncoding=utf8&characterSetResults=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    url: jdbc:mysql://mysql5:3306/adsdLab-user?createDatabaseIfNotExist=true&UseUnicode=true&characterEncoding=utf8&characterSetResults=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -19,7 +19,7 @@ spring:
     database-platform: fd.adsd.user.utils.DefaultMySQL57Dialect
 
   rabbitmq:
-    host: localhost
+    host: rabbitmq
     port: 5672
     username: guest
     password: guest

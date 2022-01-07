@@ -22,7 +22,7 @@ public class UserService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String TASK_URL_PREFIX = "http://localhost:6783/api/task/";
+    private static final String TASK_URL_PREFIX = "http://task:6783/api/task/";
 
     public String register(RegisterRequest request){
         User user = new User(request.getUsername(),request.getPassword(),request.getEmail());

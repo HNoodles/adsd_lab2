@@ -1,0 +1,66 @@
+version: "3"
+services:
+  mysql5:
+    build: mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - /lab2/mysql:/var/lib/mysql
+    ports:
+      - 13306:3306
+    networks:
+      - mynetwork
+
+  rabbitmq:
+    build: rabbitmq/
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    networks:
+      - mynetwork
+
+  employee:
+    depends_on:
+      - mysql5
+    build: employee/
+    restart: always
+    ports:
+      - 6782:6782
+    networks:
+      - mynetwork
+
+  report:
+    depends_on:
+      - mysql5
+    build: report/
+    restart: always
+    ports:
+      - 6784:6784
+    networks:
+      - mynetwork
+
+  task:
+    depends_on:
+      - mysql5
+    build: task/
+    restart: always
+    ports:
+      - 6783:6783
+    networks:
+      - mynetwork
+
+  user:
+    depends_on:
+      - mysql5
+    build: user/
+    restart: always
+    ports:
+      - 6781:6781
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork: {}

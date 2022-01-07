@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: report
+#  datasource:
+#    url: jdbc:mysql://${DB_URL}/superMar?createDatabaseIfNotExist=true&UseUnicode=true&characterEncoding=utf8&characterSetResults=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+#    username: ${USERNAME}
+#    password: ${PASSWORD}
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource:
+    url: jdbc:mysql://localhost:3306/adsdLab-report?createDatabaseIfNotExist=true&UseUnicode=true&characterEncoding=utf8&characterSetResults=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    time-zone: Asia/Shanghai
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: fd.adsd.report.utils.DefaultMySQL57Dialect
+
+feign:
+  client:
+    config:
+      default:  # 全局配置
+        connectTimeout: 5000 # 连接超时时间5s
+        readTimeout: 5000 # 业务处理超时时间5s
+        loggerLevel: basic # 日志级别
+
+server:
+  port: 6784
+

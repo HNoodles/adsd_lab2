@@ -1,0 +1,15 @@
+package fd.adsd.user.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.amqp.core.Queue;
+
+@Configuration
+public class Queues {
+    public final static String queueRegister = "register";
+
+    @Bean(queueRegister)
+    public Queue queueRegister(){
+        return new Queue(queueRegister);
+    }
+}
